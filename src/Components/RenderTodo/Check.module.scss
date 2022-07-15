@@ -1,0 +1,13 @@
+.active {
+  text-decoration: line-through;
+  color: #0f0;
+}
+
+.title {
+  cursor: pointer;
+}
+.leftBlock {
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+}
