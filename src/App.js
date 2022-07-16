@@ -4,6 +4,7 @@ import Modal from "./Components/Modal/Modal";
 import Edit from "./Components/Edit/Edit";
 import AddItem from "./Components/AddItem/AddItem";
 import CreateNewItem from "./Components/CreateNewItem/CreateNewItem";
+import { TbMoodEmpty } from "react-icons/tb";
 
 const App = () => {
   const [todo, setTodo] = useState([
@@ -54,16 +55,21 @@ const App = () => {
 
   return (
     <div className="container">
-      {todo.map((item) => (
-        <RenderTodo
-          key={item.id}
-          todo={item}
-          remove={remove}
-          changeCompleted={changeCompleted}
-          setVisibleEdit={setVisibleEdit}
-          changeEdit={changeEdit}
-        />
-      ))}
+      <h1 style={{ position: "relative", left: "43%" }}>Todo List</h1>
+      {todo.length ? (
+        todo.map((item) => (
+          <RenderTodo
+            key={item.id}
+            todo={item}
+            remove={remove}
+            changeCompleted={changeCompleted}
+            setVisibleEdit={setVisibleEdit}
+            changeEdit={changeEdit}
+          />
+        ))
+      ) : (
+        <TbMoodEmpty style={{ position: "relative", left: "42%" }} size="150" />
+      )}
       <Modal visible={visibleEdit} setVisible={setVisibleEdit}>
         <Edit
           editValue={editValue}
